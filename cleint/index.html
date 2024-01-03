@@ -14,9 +14,12 @@
     <canvas id="canvas" width="800" height="600"></canvas>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+
+            const roomName = prompt("방 이름을 입력하세요:");
+
             const canvas = document.getElementById("canvas");
             const context = canvas.getContext("2d");
-            const socket = new WebSocket("ws://localhost:3000"); // WebSocket 서버 주소로 변경해야 합니다.
+            const socket = new WebSocket(`ws://localhost:3000?room=${roomName}`); // WebSocket 서버 주소로 변경해야 합니다.
 
             let isDrawing = false;
 
